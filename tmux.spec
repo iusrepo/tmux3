@@ -1,6 +1,6 @@
 Name:           tmux
-Version:        2.4
-Release:        2%{?dist}
+Version:        2.5
+Release:        1%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -66,6 +66,10 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Sat Jun 10 2017 Filipe Rosset <rosset.filipe@gmail.com> - 2.5-1
+- New upstream release 2.5 - fixes rhbz #1449666
+- https://raw.githubusercontent.com/tmux/tmux/2.5/CHANGES
+
 * Fri Apr 21 2017 Filipe Rosset <rosset.filipe@gmail.com> - 2.4-2
 - rebuild tmux as PIE  - fixes rhbz #1324104
 
