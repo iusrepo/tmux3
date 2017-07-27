@@ -1,6 +1,6 @@
 Name:           tmux
 Version:        2.5
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -66,6 +66,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Thu Jul 27 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Sat Jun 10 2017 Filipe Rosset <rosset.filipe@gmail.com> - 2.5-1
 - New upstream release 2.5 - fixes rhbz #1449666
 - https://raw.githubusercontent.com/tmux/tmux/2.5/CHANGES
