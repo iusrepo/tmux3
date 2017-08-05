@@ -1,6 +1,6 @@
 Name:           tmux
 Version:        2.5
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -9,9 +9,16 @@ Group:          Applications/System
 License:        ISC and BSD
 URL:            https://tmux.github.io/
 Source0:        https://github.com/tmux/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
-
 # Examples has been removed - so include the bash_completion here
 Source1:        bash_completion_tmux.sh
+# tmuxinator wouldn't start with tmux 2.5
+# tmuxinator discussion: https://github.com/tmuxinator/tmuxinator/issues/536
+# tmux discussion (states that the patch won't be backported to 2.5):
+#  https://github.com/tmux/tmux/issues/971
+Patch0:         tmux-2.5-fail-on-no-target.diff
+#https://bugzilla.redhat.com/show_bug.cgi?id=1476851
+#https://github.com/tmux/tmux/issues/1027#issuecomment-319088791
+Patch1:         tmux-2.5-bell-action-other-ignored.diff
 
 BuildRequires:  ncurses-devel
 BuildRequires:  libevent-devel
@@ -24,7 +31,8 @@ intended to be a simple, modern, BSD-licensed alternative to programs such
 as GNU Screen.
 
 %prep
-%setup -q
+#%setup -q
+%autosetup
 
 %build
 CFLAGS="$RPM_OPT_FLAGS -fPIC -pie -Wl,-z,relro -Wl,-z,now"
@@ -66,6 +74,10 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Sat Aug 05 2017 Filipe Rosset <rosset.filipe@gmail.com> - 2.5-4
+- Fixes rhbz #1476851 tmux bell-action other not working
+- Fixes rhbz #1476892 tmux update in F26 broke tmuxinator
+
 * Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.5-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
 
