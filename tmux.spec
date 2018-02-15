@@ -2,7 +2,7 @@
 
 Name:           tmux
 Version:        2.6
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -67,6 +67,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Wed Feb 14 2018 Kevin Fenzi <kevin@scrye.com> - 2.6-3
+- Rebuild for new libevent
+
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
