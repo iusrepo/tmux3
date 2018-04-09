@@ -2,7 +2,7 @@
 
 Name:           tmux
 Version:        2.6
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -18,6 +18,7 @@ Patch0:         tmux-2.6-fix-line-clear-utf8.patch
 Patch1:         tmux-2.6-fix-wide-chars.patch
 Patch2:         tmux-2.6-fix-utf8-char-handling.patch
 
+BuildRequires:  gcc
 BuildRequires:  ncurses-devel
 BuildRequires:  libevent-devel
 BuildRequires:  libutempter-devel
@@ -67,6 +68,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Mon Apr 09 2018 Filipe Rosset <rosset.filipe@gmail.com> - 2.6-4
+- added gcc as BR
+
 * Wed Feb 14 2018 Kevin Fenzi <kevin@scrye.com> - 2.6-3
 - Rebuild for new libevent
 
