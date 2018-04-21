@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
 Name:           tmux
-Version:        2.6
-Release:        4%{?dist}
+Version:        2.7
+Release:        1%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -13,10 +13,6 @@ URL:            https://tmux.github.io/
 Source0:        https://github.com/tmux/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
 # Examples has been removed - so include the bash_completion here
 Source1:        bash_completion_tmux.sh
-
-Patch0:         tmux-2.6-fix-line-clear-utf8.patch
-Patch1:         tmux-2.6-fix-wide-chars.patch
-Patch2:         tmux-2.6-fix-utf8-char-handling.patch
 
 BuildRequires:  gcc
 BuildRequires:  ncurses-devel
@@ -34,11 +30,11 @@ as GNU Screen.
 
 %build
 %configure
-make %{?_smp_mflags}
+%make_build
 
 
 %install
-make install DESTDIR=%{buildroot} INSTALLBIN="install -p -m 755" INSTALLMAN="install -p -m 644"
+%make_install
 # bash completion
 install -Dpm 644 %{SOURCE1} %{buildroot}%{_datadir}/bash-completion/completions/tmux
 
@@ -68,6 +64,10 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Thu Apr 19 2018 Filipe Rosset <rosset.filipe@gmail.com> - 2.7-1
+- update to version 2.7, fixes rhbz #1486507
+- removed upstreamed patches + spec modernization
+
 * Mon Apr 09 2018 Filipe Rosset <rosset.filipe@gmail.com> - 2.6-4
 - added gcc as BR
 
