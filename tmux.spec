@@ -2,7 +2,7 @@
 
 Name:           tmux
 Version:        2.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -64,6 +64,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Thu Apr 19 2018 Filipe Rosset <rosset.filipe@gmail.com> - 2.7-1
 - update to version 2.7, fixes rhbz #1486507
 - removed upstreamed patches + spec modernization
