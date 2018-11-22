@@ -2,7 +2,7 @@
 
 Name:           tmux
 Version:        2.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A terminal multiplexer
 
 Group:          Applications/System
@@ -13,6 +13,14 @@ URL:            https://tmux.github.io/
 Source0:        https://github.com/tmux/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
 # Examples has been removed - so include the bash_completion here
 Source1:        bash_completion_tmux.sh
+Patch0:         749f67b7d801eed03345fef9c04206fbd079c3cb.patch
+# Patch0 from https://github.com/tmux/tmux/commit/749f67b7d801eed03345fef9c04206fbd079c3cb.patch
+# From 749f67b7d801eed03345fef9c04206fbd079c3cb Mon Sep 17 00:00:00 2001
+# From: nicm <nicm>
+# Date: Mon, 19 Nov 2018 13:35:40 +0000
+# Subject: [PATCH] evbuffer_new and bufferevent_new can both fail (when malloc
+# fails) and return NULL. GitHub issue 1547.
+
 
 BuildRequires:  gcc
 BuildRequires:  ncurses-devel
@@ -64,6 +72,10 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Thu Nov 22 2018 Filipe Rosset <rosset.filipe@gmail.com> - 2.8-2
+- fixes rhbz #1652128 CVE-2018-19387
+- tmux: NULL Pointer Dereference in format_cb_pane_tabs in format.c
+
 * Fri Oct 19 2018 Filipe Rosset <rosset.filipe@gmail.com> - 2.8-1
 - update to version 2.8
 - ChangeLog https://raw.githubusercontent.com/tmux/tmux/2.8/CHANGES
