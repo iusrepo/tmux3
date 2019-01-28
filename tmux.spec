@@ -5,7 +5,6 @@ Version:        2.8
 Release:        2%{?dist}
 Summary:        A terminal multiplexer
 
-Group:          Applications/System
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
 # 3 clause BSD licensed.
 License:        ISC and BSD
