@@ -2,7 +2,7 @@
 
 Name:           tmux
 Version:        2.8
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
@@ -71,6 +71,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.8-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
 * Thu Nov 22 2018 Filipe Rosset <rosset.filipe@gmail.com> - 2.8-2
 - fixes rhbz #1652128 CVE-2018-19387
 - tmux: NULL Pointer Dereference in format_cb_pane_tabs in format.c
