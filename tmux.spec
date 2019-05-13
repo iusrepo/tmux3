@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
 Name:           tmux
-Version:        2.9
-Release:        1%{?dist}
+Version:        2.9a
+Release:        2%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
@@ -63,8 +63,8 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
-* Sun May 12 2019 Filipe Rosset <rosset.filipe@gmail.com> - 2.9-1
-- update to version 2.9, fixes rhbz #1692933
+* Sun May 12 2019 Filipe Rosset <rosset.filipe@gmail.com> - 2.9a-2
+- update to version 2.9a, fixes rhbz #1692933
 - ChangeLog https://raw.githubusercontent.com/tmux/tmux/2.9/CHANGES
 - removed upstreamed patch
 
