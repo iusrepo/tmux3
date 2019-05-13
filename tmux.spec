@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
 Name:           tmux
-Version:        2.8
-Release:        3%{?dist}
+Version:        2.9
+Release:        1%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
@@ -12,14 +12,6 @@ URL:            https://tmux.github.io/
 Source0:        https://github.com/tmux/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
 # Examples has been removed - so include the bash_completion here
 Source1:        bash_completion_tmux.sh
-Patch0:         749f67b7d801eed03345fef9c04206fbd079c3cb.patch
-# Patch0 from https://github.com/tmux/tmux/commit/749f67b7d801eed03345fef9c04206fbd079c3cb.patch
-# From 749f67b7d801eed03345fef9c04206fbd079c3cb Mon Sep 17 00:00:00 2001
-# From: nicm <nicm>
-# Date: Mon, 19 Nov 2018 13:35:40 +0000
-# Subject: [PATCH] evbuffer_new and bufferevent_new can both fail (when malloc
-# fails) and return NULL. GitHub issue 1547.
-
 
 BuildRequires:  gcc
 BuildRequires:  ncurses-devel
@@ -71,6 +63,11 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Sun May 12 2019 Filipe Rosset <rosset.filipe@gmail.com> - 2.9-1
+- update to version 2.9, fixes rhbz #1692933
+- ChangeLog https://raw.githubusercontent.com/tmux/tmux/2.9/CHANGES
+- removed upstreamed patch
+
 * Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.8-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
