@@ -14,8 +14,10 @@ Source0:        https://github.com/tmux/%{name}/releases/download/%{version}/%{n
 Source1:        bash_completion_tmux.sh
 
 BuildRequires:  gcc
-BuildRequires:  ncurses-devel
-BuildRequires:  libevent-devel
+BuildRequires:  pkgconfig(libevent)
+BuildRequires:  pkgconfig(tinfo)
+BuildRequires:  pkgconfig(ncurses)
+BuildRequires:  pkgconfig(ncursesw)
 BuildRequires:  libutempter-devel
 
 %description
