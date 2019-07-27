@@ -2,7 +2,7 @@
 
 Name:           tmux
 Version:        2.9a
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
@@ -65,6 +65,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.9a-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Sun May 12 2019 Filipe Rosset <rosset.filipe@gmail.com> - 2.9a-2
 - update to version 2.9a, fixes rhbz #1692933
 - ChangeLog https://raw.githubusercontent.com/tmux/tmux/2.9/CHANGES
