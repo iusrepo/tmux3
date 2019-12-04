@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
 Name:           tmux
-Version:        2.9a
-Release:        3%{?dist}
+Version:        3.0a
+Release:        1%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
@@ -59,12 +59,16 @@ if [ "$1" = 0 ] && [ -f %{_sysconfdir}/shells ] ; then
 fi
 
 %files
-%doc CHANGES TODO
+%doc CHANGES
 %{_bindir}/tmux
 %{_mandir}/man1/tmux.1.*
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Tue Dec 03 2019 Brian C. Lane <bcl@redhat.com> - 3.0a-1
+- New upstream release v3.0a
+  Resolves: rhbz#1715313
+
 * Sat Jul 27 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.9a-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
