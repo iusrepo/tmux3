@@ -2,7 +2,7 @@
 
 Name:           tmux
 Version:        3.0a
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
@@ -65,6 +65,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Fri Jan 31 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.0a-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Tue Dec 03 2019 Brian C. Lane <bcl@redhat.com> - 3.0a-1
 - New upstream release v3.0a
   Resolves: rhbz#1715313
