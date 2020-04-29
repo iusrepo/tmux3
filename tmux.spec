@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
 Name:           tmux
-Version:        3.0a
-Release:        2%{?dist}
+Version:        3.1
+Release:        1%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
@@ -65,6 +65,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Wed Apr 29 2020 Filipe Rosset <rosset.filipe@gmail.com> - 3.1-1
+- Update to 3.1 fixes rhbz#1715313
+
 * Fri Jan 31 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.0a-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
