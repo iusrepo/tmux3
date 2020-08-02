@@ -1,15 +1,15 @@
 %global _hardened_build 1
 
-Name:           tmux
+Name:           tmux3
 Version:        3.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A terminal multiplexer
 
 # Most of the source is ISC licensed; some of the files in compat/ are 2 and
 # 3 clause BSD licensed.
 License:        ISC and BSD
 URL:            https://tmux.github.io/
-Source0:        https://github.com/tmux/%{name}/releases/download/%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/tmux/tmux/releases/download/%{version}/tmux-%{version}.tar.gz
 # Examples has been removed - so include the bash_completion here
 Source1:        bash_completion_tmux.sh
 
@@ -20,6 +20,11 @@ BuildRequires:  pkgconfig(ncurses)
 BuildRequires:  pkgconfig(ncursesw)
 BuildRequires:  libutempter-devel
 
+# safe replacement
+Provides:       tmux = %{version}-%{release}
+Provides:       tmux%{?_isa} = %{version}-%{release}
+Conflicts:      tmux < %{version}-%{release}
+
 %description
 tmux is a "terminal multiplexer."  It enables a number of terminals (or
 windows) to be accessed and controlled from a single terminal.  tmux is
@@ -27,7 +32,7 @@ intended to be a simple, modern, BSD-licensed alternative to programs such
 as GNU Screen.
 
 %prep
-%autosetup
+%autosetup -n tmux-%{version}
 
 %build
 %configure
@@ -66,6 +71,9 @@ fi
 %{_datadir}/bash-completion/completions/tmux
 
 %changelog
+* Sun Aug 02 2020 Carl George <carl@george.computer> - 3.1-3
+- Port from Fedora to IUS
+
 * Fri Jul 17 2020 Andrew Spiers <andrew@andrewspiers.net> - 3.1-2
 - Include upstream example config file
   Resolves: rhbz#1741836
